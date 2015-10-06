@@ -37,11 +37,11 @@ public class CPD3314Assign4 {
         Scanner input = new Scanner(System.in);
         String[] questions = {
             "1. Sum of Numbers",
-            "3. Distance Traveled File",
-            "10. Largest and Smallest",
-            "11. Celsius and Fahrenheit Table",
-            "14. Line Numbers",
-            "18. Random Number Guessing Game"
+            "2. Distance Traveled File",
+            "3. Largest and Smallest",
+            "4. Celsius and Fahrenheit Table",
+            "5. Line Numbers",
+            "6. Random Number Guessing Game"
         };
         int choice = 0;
         do {
@@ -55,20 +55,17 @@ public class CPD3314Assign4 {
                     case 1:
                         doExercise1();
                         break;
+                    case 2:
+                        doExercise2();
+                        break;
                     case 3:
                         doExercise3();
                         break;
-                    case 10:
-                        doExercise10();
+                    case 4:
+                        doExercise4();
                         break;
-                    case 11:
-                        doExercise11();
-                        break;
-                    case 14:
-                        doExercise14();
-                        break;
-                    case 18:
-                        doExercise18();
+                    case 5:
+                        doExercise5();
                         break;
                     case 0:
                         System.out.println("Goodbye!");
@@ -84,27 +81,27 @@ public class CPD3314Assign4 {
     }
 
     /*
-     * Exercise #1 - Sum of Numbers
+     * Exercise #1 - Sum of Even Numbers
      *
      * Write a program that asks the user for a positive nonzero integer 
-     * value. The program should use a loop to get the sum of all the 
-     * integers from 1 up to the number entered. For example, if the user 
-     * enters 50, the loop will find the sum of 1, 2, 3, 4, ... 50.
+     * value. The program should use a loop to get the sum of all the even
+     * integers from 0 up to the number entered. For example, if the user 
+     * enters 30, the loop will find the sum of 2, 4, 6, ... 30.
      *
      * Sample Output:
      * ==============
      * 
      *   Enter a positive, nonzero integer value:
-     *   50
-     *   The sum of all integers up to 50 is 1275.
+     *   30
+     *   The sum of all even integers up to 30 is 240.
      */
     public static void doExercise1() {
-        // TODO: Com[plete Exercise 1 Below
+        // TODO: Complete Exercise 1 Below
 
     }
 
     /*
-     * Exercise #2 & 3 - Distance Traveled File
+     * Exercise #2 - Distance Traveled File
      * 
      * The distance a vehicle travels can be calculated as follows:
      *     Distance = Speed * Time
@@ -128,20 +125,20 @@ public class CPD3314Assign4 {
      * Input Validation: Do not accept a negative number for speed and do not 
      * accept any value less than 1 for time traveled.
      */
-    public static void doExercise3() {
-        // TODO: Complete Exercise 2 & 3 Below
+    public static void doExercise2() {
+        // TODO: Complete Exercise 2 Below
 
     }
 
     /*
-     * Exercise 10 - Largest and Smallest
+     * Exercise 3 - Largest and Smallest
      * 
      * Write a program with a loop that lets the user enter a series of 
      * integers. The user should enter -99 to signal the end of the series. 
      * After all the numbers have been entered, the program should display the 
      * largest and smallest numbers entered.
      * 
-     * To pass the unit tests, you final two lines of output must match the pattern:
+     * To pass the unit tests, your final two lines of output must match the pattern:
      * Smallest number is x.
      * Largest number is y.
      *
@@ -160,43 +157,44 @@ public class CPD3314Assign4 {
      *   Smallest number is 3.
      *   Largest number is 7.
      */
-    public static void doExercise10() {
-        // TODO: Complete Exercise 10 Below
+    public static void doExercise3() {
+        // TODO: Complete Exercise 3 Below
 
     }
 
     /*
-     * Exercise 11 - Celsius to Fahrenheit Table
+     * Exercise 4 - Temperature Table
      * 
      * Write a program that displays a table of the Celsius temperatures 0 
-     * through 100 and their Fahrenheit equivalents. The formula for converting 
-     * a temperature from Celsius to Fahrenheit is:
+     * through 100 and their Fahrenheit and Kelvin equivalents. The formula for 
+     * converting a temperature from Celsius to Fahrenheit is:
      *     F = (9.0/5.0) * C + 32
-     * where F is the Fahrenheit temperature and C is the Celsius temperature. 
+     * To convert from Celsius to Kelvin us:
+     *     K = C + 273.15
      * Your program must use a loop to display the table.
      * Round your answers to one decimal place.
      * 
      * Sample Output:
      * ==============
-     *   C        F
-     *   -------------
-     *   0.0      32.0
-     *   .        .
-     *   .        .
-     *   .        .
-     *   20.0     68.0
-     *   .        .
-     *   .        .
-     *   .        .
-     *   100.0    212.0
+     *   C        F         K
+     *   --------------------------
+     *   0.0      32.0      273.2
+     *   .        .         .
+     *   .        .         .
+     *   .        .         .
+     *   20.0     68.0      293.2
+     *   .        .         .
+     *   .        .         .
+     *   .        .         .
+     *   100.0    212.0     373.2
      */
-    public static void doExercise11() {
-        // TODO: Complete Exercise 11 Below
+    public static void doExercise4() {
+        // TODO: Complete Exercise 4 Below
 
     }
 
     /*
-     * Exercise 14 - Line Numbers
+     * Exercise 5 - Line Numbers
      * 
      * Write a program that asks the user for the name of a file. The program 
      * should display the contents of the file with each line preceded with a 
@@ -212,43 +210,8 @@ public class CPD3314Assign4 {
      *   3: But you shall shine more bright in these contents
      *   ...
      */
-    public static void doExercise14() {
-        // TODO: Complete Exercise 14 Below
+    public static void doExercise5() {
+        // TODO: Complete Exercise 5 Below
 
-    }
-
-    /*
-     * Exercise 17 & 18 - Random Number Guessing Game with Enhancement
-     * 
-     * Write a program that generates a random number 1-50 and asks the user to 
-     * guess what the number is. If the user's guess is higher than the random 
-     * number, the program should display "Too high, try again." If the user's 
-     * guess is lower than the random number, the program should display "Too 
-     * low, try again." The program should use a loop that repeats until the user 
-     * correctly guesses the random number. Make the program keep count of the 
-     * number of guesses that the user makes. When the user correctly guesses 
-     * the random number, the program should display the number of guesses.
-     * 
-     * To pass output validation, your last line should match the pattern:
-     *   Correct! That took x attempts.
-     * 
-     * Sample Output:
-     * ==============
-     *   Guess my number (1-50):
-     *   40
-     *   Too high, try again.
-     *   Guess my number (1-50):
-     *   30
-     *   Too low, try again.
-     *   Guess my number (1-50):
-     *   35
-     *   Too high, try again.
-     *   Guess my number (1-50):
-     *   32
-     *   Correct! That took 7 attempts.
-     */
-    public static void doExercise18() {
-        // TODO: Complete Exercise 17 & 18 Below
-        
     }
 }

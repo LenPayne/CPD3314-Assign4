@@ -66,7 +66,7 @@ public class CPD3314Assign4Test {
         byte[] fakeInputArray = fakeInput.getBytes();
         System.setIn(new ByteArrayInputStream(fakeInputArray));
 
-        String expected = "55";
+        String expected = "30";
 
         CPD3314Assign4.doExercise1();
 
@@ -85,8 +85,9 @@ public class CPD3314Assign4Test {
         String fakeInput = input + "\n";
         byte[] fakeInputArray = fakeInput.getBytes();
         System.setIn(new ByteArrayInputStream(fakeInputArray));
+        int floorByTwo = (input / 2) * 2;
 
-        int expectedNum = (input * (input + 1)) / 2;
+        int expectedNum = (floorByTwo * (floorByTwo + 1)) / 2 + (floorByTwo / 2) / 2;
         String expected = Integer.toString(expectedNum);
 
         CPD3314Assign4.doExercise1();
@@ -97,10 +98,10 @@ public class CPD3314Assign4Test {
     }
 
     /**
-     * Test of doExercise3 method, of class CPD3314Assign4.
+     * Test of doExercise2 method, of class CPD3314Assign4.
      */
     @Test
-    public void testDoExercise3() {
+    public void testDoExercise2() {
         try {
             PrintWriter pw = new PrintWriter("ex3output.txt");
             pw.println();
@@ -116,7 +117,7 @@ public class CPD3314Assign4Test {
         String[] miles = {"60", "120", "180", "240", "300"};
 
         try {
-            CPD3314Assign4.doExercise3();
+            CPD3314Assign4.doExercise2();
         } catch (Exception ex) {
             fail("Unexpected Exception: " + ex.getMessage());
         }
@@ -142,7 +143,7 @@ public class CPD3314Assign4Test {
     }
 
     /**
-     * Test of doExercise10 method, of class CPD3314Assign4.
+     * Test of doExercise3 method, of class CPD3314Assign4.
      */
     @Test
     public void testDoExercise10() {
@@ -153,7 +154,7 @@ public class CPD3314Assign4Test {
         String expectedLow = "3";
         String expectedHigh = "200";
 
-        CPD3314Assign4.doExercise10();
+        CPD3314Assign4.doExercise3();
 
         String[] actual = outContent.toString().split("\n");
         String actualLow = actual[actual.length - 2];
@@ -165,11 +166,11 @@ public class CPD3314Assign4Test {
     }
 
     /**
-     * Test of doExercise11 method, of class CPD3314Assign4.
+     * Test of doExercise4 method, of class CPD3314Assign4.
      */
     @Test
     public void testDoExercise11() {
-        CPD3314Assign4.doExercise11();
+        CPD3314Assign4.doExercise4();
         String[] actual = outContent.toString().split("\n");
         int i = 0;
         while (i < actual.length
@@ -179,12 +180,14 @@ public class CPD3314Assign4Test {
         for (double C = 0; C <= 100; C++) {
             int iC = (int) C;
             double F = (9.0 / 5.0) * C + 32;
+            double K = C + 273.15;
             String expectedC = String.format("%.1f", C);
             String expectedF = String.format("%.1f", F);
+            String expectedK = String.format("%.1f", K);
             if (i + C < actual.length) {
                 String actualLine = actual[i + iC];
-                assertTrue("Checking if \"" + actualLine + "\" contains: " + expectedC + " and " + expectedF,
-                        (actualLine.contains(expectedC) && actualLine.contains(expectedF)));
+                assertTrue("Checking if \"" + actualLine + "\" contains: " + expectedC + ", " + expectedF + " and " + expectedK,
+                        (actualLine.contains(expectedC) && actualLine.contains(expectedF) && actualLine.contains(expectedK)));
             } else {
                 fail("Out of input: Did you count to 100, or stop at 99?");
             }
@@ -193,7 +196,7 @@ public class CPD3314Assign4Test {
     }
 
     /**
-     * Test of doExercise14 method, of class CPD3314Assign4.
+     * Test of doExercise5 method, of class CPD3314Assign4.
      */
     @Test
     public void testDoExercise14() {
@@ -219,7 +222,7 @@ public class CPD3314Assign4Test {
         };
 
         try {
-            CPD3314Assign4.doExercise14();
+            CPD3314Assign4.doExercise5();
         } catch (Exception ex) {
             fail("Unexpected Exception: " + ex.getMessage());
         }
@@ -239,36 +242,4 @@ public class CPD3314Assign4Test {
 
         }
     }
-
-    /**
-     * Test of doExercise18 method, of class CPD3314Assign4.
-     */
-    @Test
-    public void testDoExercise18() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 1; i <= 50; i++) {
-            sb.append(Integer.toString(i));
-            sb.append("\n");
-        }
-        String fakeInput = sb.toString();
-        byte[] fakeInputArray = fakeInput.getBytes();
-        System.setIn(new ByteArrayInputStream(fakeInputArray));
-
-        CPD3314Assign4.doExercise18();
-
-        String[] actual = outContent.toString().split("\n");
-        int outputLength = actual.length;
-        int numGuessByTwo = outputLength / 2;
-        int numGuessByThree = outputLength / 3;
-        String numGuessByOutput = actual[outputLength - 1];
-        String token = numGuessByOutput.split(" ")[3];
-        try {
-            int numGuessByParse = Integer.parseInt(token);
-            assertTrue("Is Actual Number of Guesses Accurate at End?",
-                    numGuessByParse == numGuessByTwo || numGuessByParse == numGuessByThree);
-        } catch (NumberFormatException ex) {
-            fail("Final Line of Output Did Not Match 'Correct! That took x attempts.");
-        }
-    }
-
 }
