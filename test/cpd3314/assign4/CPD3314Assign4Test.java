@@ -87,7 +87,7 @@ public class CPD3314Assign4Test {
         System.setIn(new ByteArrayInputStream(fakeInputArray));
         int floorByTwo = (input / 2) * 2;
 
-        int expectedNum = (floorByTwo * (floorByTwo + 1)) / 2 + (floorByTwo / 2) / 2;
+        int expectedNum = ((floorByTwo * (floorByTwo + 1)) / 2 + (floorByTwo / 2)) / 2;
         String expected = Integer.toString(expectedNum);
 
         CPD3314Assign4.doExercise1();
@@ -146,7 +146,7 @@ public class CPD3314Assign4Test {
      * Test of doExercise3 method, of class CPD3314Assign4.
      */
     @Test
-    public void testDoExercise10() {
+    public void testDoExercise3() {
         String fakeInput = "10\n9\n11\n200\n7\n8\n3\n20\n-99\n";
         byte[] fakeInputArray = fakeInput.getBytes();
         System.setIn(new ByteArrayInputStream(fakeInputArray));
@@ -157,19 +157,23 @@ public class CPD3314Assign4Test {
         CPD3314Assign4.doExercise3();
 
         String[] actual = outContent.toString().split("\n");
-        String actualLow = actual[actual.length - 2];
-        String actualHigh = actual[actual.length - 1];
-        assertTrue("Checking if \"" + actualLow + "\" contains expected result " + expectedLow,
-                actualLow.contains(expectedLow));
-        assertTrue("Checking if \"" + actualHigh + "\" contains expected result " + expectedHigh,
-                actualHigh.contains(expectedHigh));
+        if (actual.length >= 3) {
+            String actualLow = actual[actual.length - 2];
+            String actualHigh = actual[actual.length - 1];
+            assertTrue("Checking if \"" + actualLow + "\" contains expected result " + expectedLow,
+                    actualLow.contains(expectedLow));
+            assertTrue("Checking if \"" + actualHigh + "\" contains expected result " + expectedHigh,
+                    actualHigh.contains(expectedHigh));
+        } else {
+            fail("Not enough output. Did you provide a summary at the end?");
+        }
     }
 
     /**
      * Test of doExercise4 method, of class CPD3314Assign4.
      */
     @Test
-    public void testDoExercise11() {
+    public void testDoExercise4() {
         CPD3314Assign4.doExercise4();
         String[] actual = outContent.toString().split("\n");
         int i = 0;
@@ -199,7 +203,7 @@ public class CPD3314Assign4Test {
      * Test of doExercise5 method, of class CPD3314Assign4.
      */
     @Test
-    public void testDoExercise14() {
+    public void testDoExercise5() {
         String fakeInput = "shakespeare.txt\n";
         byte[] fakeInputArray = fakeInput.getBytes();
         System.setIn(new ByteArrayInputStream(fakeInputArray));
