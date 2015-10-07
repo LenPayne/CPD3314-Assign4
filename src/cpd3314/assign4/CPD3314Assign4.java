@@ -40,8 +40,7 @@ public class CPD3314Assign4 {
             "2. Distance Traveled File",
             "3. Largest and Smallest",
             "4. Celsius and Fahrenheit Table",
-            "5. Line Numbers",
-            "6. Random Number Guessing Game"
+            "5. Line Numbers"
         };
         int choice = 0;
         do {
